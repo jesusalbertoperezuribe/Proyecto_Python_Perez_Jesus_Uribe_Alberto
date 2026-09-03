@@ -1,7 +1,7 @@
-
 import caja_de_herramientas
-# from caja_de_herramientas import
-import caja_de_policia 
+import caja_de_policia
+from caja_de_herramientas import ver_horario_semanal
+from caja_de_policia import datoscorrectos
 lista_materias = caja_de_herramientas.cargar_datos()
 
 activo=True
@@ -42,7 +42,7 @@ while activo:
         else:
             print("Los datos no son correctos. No se puede registrar la materia.")
     elif opcion == 2:
-        pass
+        caja_de_herramientas.ver_horario_semanal(lista_materias)
     elif opcion == 3:
         pass
     elif opcion == 4:
