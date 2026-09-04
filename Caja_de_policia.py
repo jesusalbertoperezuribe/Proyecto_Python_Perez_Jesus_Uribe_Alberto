@@ -1,12 +1,12 @@
-def datoscorrectos(nombremateriaoactividad, diadelasemana, horadeinicio, horadefin, decirubicacion, lista_materias):
+def datoscorrectos(nombremateriaoactividad, diadelasemana, horadeinicio, horadefin, decirubicacion, lista_materias, materia_ignorada=None):
 
     if horadeinicio >= horadefin:
         print("Error: La hora de inicio no puede ser igual ni más tarde que la hora de fin.")
         return False
-    if decirubicacion == "":
-        decirubicacion = "sin ubicación"
 
     for materia_guardada in lista_materias:
+        if materia_ignorada and materia_guardada["materia"].lower() == materia_ignorada.lower() and materia_guardada["dia"].lower() == diadelasemana.lower():
+            continue
         
         if materia_guardada["materia"].lower() == nombremateriaoactividad.lower() and materia_guardada["dia"].lower() == diadelasemana.lower():
             print(f"Error: La materia '{nombremateriaoactividad}' ya está registrada el {diadelasemana}.")
